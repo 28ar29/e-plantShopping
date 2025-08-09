@@ -1,29 +1,28 @@
+/* 1) Safe container — visible, centered, with some side room */
 .about-us-container {
-    width: 1000px;
-    /* margin: 0 auto; */
-    /* padding: 20px; */
-    /* background-color: red; */
-    text-align: justify;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;        /* keeps text from touching edges */
+    text-align: left;       /* no weird justify gaps while fixing */
+    overflow: visible;      /* ensure nothing is clipped */
   }
   
-  .about-us-heading {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .about-us-description {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
+  /* 2) Remove all “shove it around” stuff from the text blocks */
+  .about-us-description,
   .about-us-content {
-    font-size: 18px;
-    margin-bottom: 20px;
+    position: static;
+    margin: 0;
+    transform: none;
+    overflow-wrap: anywhere; /* keep long words from overflowing */
+    white-space: normal;
+    color: #222;             /* visible on light backgrounds */
   }
+  
+  /* 3) If you STILL want slight shifts, use padding (safe) */
+  .about-us-description { padding-left: 20px; }  /* small nudge right */
+  .about-us-content     { padding-left: 0; }     /* keep flush left */
+
   .plant_logo_right{
     text-align: right;
   }
